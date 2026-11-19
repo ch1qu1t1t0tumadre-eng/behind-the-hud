@@ -539,9 +539,12 @@ def build_chunks(words, max_words=2):
     if cur:
         chunks.append(cur)
     out = []
+    sent = 0
     for i, c in enumerate(chunks):
         end = chunks[i + 1][0]["start"] if i + 1 < len(chunks) else c[-1]["end"] + 0.3
-        out.append({"words": c, "start": c[0]["start"], "end": end})
+        out.append({"words": c, "start": c[0]["start"], "end": end, "i": i, "sent": sent})
+        if c[-1]["text"][-1] in ".?!":
+            sent += 1
     return out
 
 
@@ -601,7 +604,9 @@ def draw_caption_big(ctx, chunk, T, y=1060, size=150, rgb=YELLOW, edge=(0.55, 0.
 
 
 def _captions(ctx, mod, ch, T):
-    if getattr(mod, "ESTILO_SUBTITULO", "grande") == "grande":
+    if callable(getattr(mod, "SUBTITULO", None)):      # estilo propio definido en escenas.py / hud.py
+        mod.SUBTITULO(ctx, ch, T)
+    elif getattr(mod, "ESTILO_SUBTITULO", "grande") == "grande":
         draw_caption_big(ctx, ch, T, y=getattr(mod, "Y_SUBTITULO", 1060))
     else:
         draw_captions(ctx, ch, T)

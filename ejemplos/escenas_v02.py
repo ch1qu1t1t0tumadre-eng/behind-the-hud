@@ -6,6 +6,7 @@ from anim import *  # noqa
 from hud import *  # noqa
 
 TAG = "BEHIND THE HUD // FILE 002"
+SUBTITULO = subtitulo_hud
 
 
 def mound(ctx, x, y, w, col=SAND):

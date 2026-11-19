@@ -5,6 +5,7 @@ from anim import *  # noqa
 from hud import *  # noqa
 
 TAG = "BEHIND THE HUD // FILE 001"
+SUBTITULO = subtitulo_hud
 
 
 def hero(ctx, T, zoom):

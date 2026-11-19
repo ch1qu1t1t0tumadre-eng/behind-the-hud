@@ -458,3 +458,135 @@ def candle(ctx, x, y, T):
     fl = 1 + 0.15 * math.sin(T * 18 + x)
     glow(ctx, x, y - 120, 90 * fl, ORANGE, 0.5)
     ellipse(ctx, x, y - 118, 14 * fl, 28 * fl); fill(ctx, (1, 0.85, 0.3))
+
+
+# ======================================================================
+# SUBTÍTULOS "Behind the HUD": 5 estilos gamer que cambian en cada frase.
+# Uso en escenas.py:  SUBTITULO = subtitulo_hud
+# Los números, años y cantidades ($) usan siempre el estilo COMBO.
+# ======================================================================
+CAP_Y = 1060
+CAP_MAXW = 900
+_CAP_ACCENTS = [CYAN, MAGENTA, LIME, ORANGE, VIOLET]
+
+
+def _cap_word(chunk):
+    return " ".join(x["text"] for x in chunk["words"]).upper().strip().rstrip(",")
+
+
+def _fit(ctx, font, w, size, maxw=CAP_MAXW, weight=cairo.FONT_WEIGHT_NORMAL):
+    ctx.select_font_face(font, cairo.FONT_SLANT_NORMAL, weight)
+    ctx.set_font_size(size)
+    adv = ctx.text_extents(w)[4]
+    if adv > maxw:
+        size *= maxw / adv
+        ctx.set_font_size(size)
+        adv = ctx.text_extents(w)[4]
+    return size, adv
+
+
+def _path(ctx, w, x, y):
+    ctx.new_path(); ctx.move_to(x, y); ctx.text_path(w)
+
+
+def cap_neon(ctx, w, lt, acc):
+    """Letras blancas con halo de neón del color de la frase."""
+    size, adv = _fit(ctx, "Anton", w, 170)
+    k = ease_back(clamp(lt / 0.16))
+    ctx.save(); ctx.translate(W / 2, CAP_Y); ctx.scale(0.6 + 0.4 * k, 0.6 + 0.4 * k)
+    x0, y0 = -adv / 2, size * 0.36
+    ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+    flick = 0.85 + 0.15 * math.sin(lt * 40) if lt < 0.25 else 1.0
+    for lw, a in ((46, 0.12), (30, 0.22), (18, 0.45)):
+        _path(ctx, w, x0, y0); ctx.set_source_rgba(*acc, a * flick); ctx.set_line_width(lw); ctx.stroke()
+    _path(ctx, w, x0, y0); ctx.set_source_rgb(0.02, 0.02, 0.05); ctx.set_line_width(10); ctx.stroke()
+    _path(ctx, w, x0, y0); ctx.set_source_rgb(1, 1, 1); ctx.fill()
+    ctx.restore()
+
+
+def cap_arcade(ctx, w, lt, acc):
+    """Letra pixelada de recreativa que se escribe letra a letra, con sombra dura."""
+    size, adv = _fit(ctx, "Press Start 2P", w, 92)
+    n = max(1, int(math.ceil(len(w) * clamp(lt / 0.2))))
+    shown = w[:n]
+    x0, y0 = W / 2 - adv / 2, CAP_Y + size * 0.5
+    ctx.set_line_join(cairo.LINE_JOIN_MITER)
+    _path(ctx, shown, x0 + 10, y0 + 10); ctx.set_source_rgb(*acc); ctx.fill()
+    _path(ctx, shown, x0, y0); ctx.set_source_rgb(0, 0, 0); ctx.set_line_width(12); ctx.stroke()
+    _path(ctx, shown, x0, y0); ctx.set_source_rgb(1, 1, 1); ctx.fill()
+    if n < len(w) or (lt < 0.6 and int(lt * 6) % 2 == 0):
+        cw = ctx.text_extents(shown)[4]
+        ctx.rectangle(x0 + cw + 10, y0 - size * 0.95, size * 0.55, size * 0.95); ctx.set_source_rgb(*acc); ctx.fill()
+
+
+def cap_glitch(ctx, w, lt, acc):
+    """La palabra entra 'rota' (canales rojo/cian desplazados) y se estabiliza."""
+    size, adv = _fit(ctx, "Anton", w, 175)
+    x0, y0 = W / 2 - adv / 2, CAP_Y + size * 0.36
+    amt = 26 * (1 - clamp(lt / 0.22)) + 4
+    rng = np.random.default_rng(int(lt * 30) + len(w))
+    ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+    _path(ctx, w, x0, y0); ctx.set_source_rgb(0, 0, 0); ctx.set_line_width(20); ctx.stroke()
+    for dx, col in ((-amt, (1, 0.15, 0.3)), (amt, (0.1, 0.9, 1))):
+        _path(ctx, w, x0 + dx, y0); ctx.set_source_rgba(*col, 0.85); ctx.fill()
+    _path(ctx, w, x0, y0); ctx.set_source_rgb(1, 1, 1); ctx.fill()
+    if lt < 0.25:  # cortes horizontales
+        for _ in range(4):
+            yy = CAP_Y + rng.uniform(-size * 0.6, size * 0.3)
+            ctx.rectangle(W / 2 - adv / 2 - 30, yy, adv + 60, rng.uniform(6, 16))
+            ctx.set_source_rgba(*acc, 0.8); ctx.fill()
+
+
+def cap_combo(ctx, w, lt, acc):
+    """Dorado/naranja con rebote fuerte, como un 'COMBO x2'. Para números y años."""
+    size, adv = _fit(ctx, "Bangers", w, 185)
+    k = ease_back(clamp(lt / 0.14))
+    s = 0.4 + 0.6 * k + (0.06 * math.sin(lt * 18) * math.exp(-lt * 4))
+    ctx.save(); ctx.translate(W / 2, CAP_Y); ctx.rotate(-0.06); ctx.scale(s, s)
+    x0, y0 = -adv / 2, size * 0.36
+    ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+    _path(ctx, w, x0 + 10, y0 + 12); ctx.set_source_rgb(0.45, 0.05, 0.02); ctx.set_line_width(28); ctx.stroke_preserve(); ctx.fill()
+    _path(ctx, w, x0, y0); ctx.set_source_rgb(0, 0, 0); ctx.set_line_width(22); ctx.stroke()
+    g = cairo.LinearGradient(0, -size * 0.5, 0, size * 0.4)
+    g.add_color_stop_rgb(0, 1, 0.97, 0.45); g.add_color_stop_rgb(0.55, 1, 0.80, 0.10); g.add_color_stop_rgb(1, 1, 0.45, 0.05)
+    _path(ctx, w, x0, y0); ctx.set_source(g); ctx.fill()
+    if lt < 0.35:  # destellos
+        for k2 in range(6):
+            a = k2 * math.tau / 6 + 0.3
+            r = adv / 2 + 40 + 120 * (lt / 0.35)
+            ctx.save(); ctx.translate(r * math.cos(a) * 0.9, r * math.sin(a) * 0.45)
+            ctx.move_to(0, -18); ctx.line_to(6, 0); ctx.line_to(0, 18); ctx.line_to(-6, 0); ctx.close_path()
+            ctx.set_source_rgba(1, 0.95, 0.5, 1 - lt / 0.35); ctx.fill(); ctx.restore()
+    ctx.restore()
+
+
+def cap_panel(ctx, w, lt, acc):
+    """Panel de notificación de juego que entra deslizándose, con la palabra dentro."""
+    size, adv = _fit(ctx, "Montserrat", w, 112, maxw=820, weight=cairo.FONT_WEIGHT_BOLD)
+    p = ease(clamp(lt / 0.16))
+    dx = (1 - p) * -260
+    pw, ph = adv + 90, size * 1.45
+    x, y = W / 2 - pw / 2 + dx, CAP_Y - ph / 2
+    rrect(ctx, x + 8, y + 10, pw, ph, 18); fill(ctx, (0, 0, 0), 0.55 * p)
+    rrect(ctx, x, y, pw, ph, 18); fill_keep(ctx, (0.04, 0.03, 0.10), 0.92 * p); stroke(ctx, acc, 7, p)
+    ctx.rectangle(x, y + 14, 12, ph - 28); fill(ctx, acc, p)
+    ctx.select_font_face("Montserrat", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); ctx.set_font_size(size)
+    _path(ctx, w, x + 45, CAP_Y + size * 0.36)
+    ctx.set_source_rgba(1, 1, 1, p); ctx.fill()
+
+
+CAP_STYLES = [cap_neon, cap_arcade, cap_glitch, cap_panel, cap_neon, cap_glitch, cap_arcade, cap_panel]
+
+
+def subtitulo_hud(ctx, chunk, T):
+    """Subtítulo del canal: el estilo cambia en cada frase; los números van en COMBO."""
+    w = _cap_word(chunk)
+    if not w:
+        return
+    lt = T - chunk["start"]
+    sent = chunk.get("sent", 0)
+    acc = _CAP_ACCENTS[sent % len(_CAP_ACCENTS)]
+    if any(c.isdigit() for c in w) or "$" in w:
+        cap_combo(ctx, w, lt, acc)
+    else:
+        CAP_STYLES[sent % len(CAP_STYLES)](ctx, w, lt, acc)

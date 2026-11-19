@@ -37,7 +37,9 @@ Si sale 0 o menos, no hagas nada y avisa al dueño (cuándo se renuevan los cré
   from anim import *  # noqa
   from hud import *  # noqa
   TAG = "BEHIND THE HUD // FILE 0NN"
+  SUBTITULO = subtitulo_hud   # subtítulos propios del canal (obligatorio)
   ```
+- **Subtítulos**: `SUBTITULO = subtitulo_hud` (definido en `hud.py`). Hay 5 estilos gamer que cambian en cada frase: NEÓN, ARCADE (pixel, letra a letra), GLITCH, panel HUD y COMBO, que es dorado y se usa siempre para números y años. No uses el subtítulo amarillo de «Wait, What.».
 - Estilo: fondos `bg_arcade`, `bg_desert`, `bg_blueprint`, `bg_dark`; marco `hud(ctx, T, TAG, color)` en todas las escenas; contadores con `big_number`; `ficha()` para cada persona nombrada; palabra gigante amarilla (la pone anim.py).
 - 15–18 escenas, cada una ≤ 3,5 s, cambio de plano cuando cambia la frase (tiempos de `words.json`). **La última escena = la primera** (bucle). El «In other words» lleva el plano más fuerte (zoom rápido + rayos).
 - Cámara siempre centrada en `cy = 960`. Gráficos en y 250–900 y etiquetas en y 1300–1450. **La franja 950–1170 queda libre para el subtítulo.**

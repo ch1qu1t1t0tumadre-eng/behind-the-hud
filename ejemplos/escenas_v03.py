@@ -6,6 +6,7 @@ from anim import *  # noqa
 from hud import *  # noqa
 
 TAG = "BEHIND THE HUD // FILE 003"
+SUBTITULO = subtitulo_hud
 PIECES = [
     [(0, 0), (1, 0), (2, 0), (3, 0)],
     [(0, 0), (1, 0), (0, 1), (1, 1)],
