@@ -3,7 +3,7 @@
 Canal: **Behind the HUD** (@BehindtheHUD-c1n) · Studio: https://studio.youtube.com/channel/UCToBFcTJkGZYSeYUOt2AXnA
 Nicho: *The hidden reasons behind video games*: curiosidades de videojuegos (historia, desarrollo, fallos, récords, empresas, diseñadores).
 **Todo lo que sale en el vídeo va en inglés americano** (guion, voz, textos, título, descripción, hashtags). Al dueño se le habla en español (España).
-Ritmo: **2 Shorts al día**, publicados a las **17:00** y **20:00** (Europe/Madrid), subidos como **privado + programado**.
+Ritmo: **1 Short al día**, publicado a las **20:00** (Europe/Madrid), subido como **privado + programado**.
 
 ## 0. Preparación
 ```bash
@@ -13,7 +13,7 @@ Lee `agenda.md` (huecos ya ocupados) y `temas_usados.md` (no repetir).
 
 ## 1. Créditos de ElevenLabs (cuenta compartida con «Wait, What.»)
 `account_get_usage` del conector ElevenLabs → `libres = character_limit - character_count`.
-**Vídeos que se pueden hacer hoy = min(2, (libres − 3000) // 850)**. Los 3000 son la reserva para «Wait, What.».
+**Vídeos que se pueden hacer hoy = min(1, (libres − 3000) // 850)**. Los 3000 son la reserva para «Wait, What.».
 Si sale 0 o menos, no hagas nada y avisa al dueño (cuándo se renuevan los créditos: `next_character_count_reset_unix`).
 
 ## 2. Tema y guion (skills yt-shorts-hook-writer + yt-shorts-scripter, adaptadas a videojuegos)
@@ -80,7 +80,7 @@ all(document,'ytcp-uploads-dialog tp-yt-paper-radio-button[name=VIDEO_MADE_FOR_K
    - **Descripción**: el gancho en la línea 1; 1–2 líneas con el dato; `Sources: …`; hashtags `#shorts #gaming #<tema> #retrogaming #gamingfacts` (3–5 en total más #shorts).
 5. Miniatura: repite la inyección del paso 2 con la URL raw del .jpg (`type:'image/jpeg'`) y pulsa `all(document,'ytcp-uploads-dialog ytcp-thumbnail-uploader #select-button')[0].click()`. Espera 6 s.
 6. «Mostrar más» (`ytcp-uploads-dialog #toggle-button`). Categoría: clic en `ytcp-uploads-dialog ytcp-form-select#category ytcp-dropdown-trigger` → opción con texto exacto «Videojuegos». Etiquetas: `find` «Añade una etiqueta» → clic → `type` 8–12 etiquetas separadas por comas y terminadas en coma → tecla Return.
-7. Pulsa «Siguiente» (`ytcp-uploads-dialog #next-button`) 3 veces → «Programar». Abre la sección de programación y pon la fecha y la hora del hueco (17:00 o 20:00, Europe/Madrid) → «Programar». Comprueba en la lista de contenido que el vídeo sale como «Programado» y que se ven el título y la miniatura.
+7. Pulsa «Siguiente» (`ytcp-uploads-dialog #next-button`) 3 veces → «Programar». Abre la sección de programación y pon la fecha y la hora del hueco (20:00, Europe/Madrid) → «Programar». Comprueba en la lista de contenido que el vídeo sale como «Programado» y que se ven el título y la miniatura.
    - Si no consigues programarlo, déjalo en **Privado** (radio `PRIVATE` → `#done-button`) y avisa al dueño.
 
 ## 7. Cierre

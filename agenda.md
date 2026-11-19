@@ -1,6 +1,6 @@
 # Agenda de publicación (Europe/Madrid)
 
-Huecos diarios: **17:00** y **20:00**. Cada vídeo se sube como privado + programado.
+Hueco diario: **20:00** (1 Short al día desde el 20/11/2026). Cada vídeo se sube como privado + programado.
 Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus horas antes de ocupar un hueco.
 
 | fecha | hora | id | título | estado |
