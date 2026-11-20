@@ -19,4 +19,4 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-25 | 20:00 | 008 | The PlayStation Was Supposed To Be A Nintendo 🎮 | programado · ePnQzJPO0R4 · miniatura ✓ |
 | 2026-11-26 | 20:00 | 011 | This Game Boy Survived A Bombing 💥 | programado · -VtHpYZJkmU · miniatura ✓ |
 | 2026-11-27 | 20:00 | 012 | Zelda Started With A Kid Scared Of A Cave 🏮 | programado · AM2nYNCb9CE · miniatura ✓ |
-| 2026-11-29 | 20:00 | 010 | This Fighting Game Move Started As A Bug 👊 | programado · VH5BPixTGtA · miniatura ✓ |
+| 2026-11-28 | 20:00 | 010 | This Fighting Game Move Started As A Bug 👊 | programado · VH5BPixTGtA · miniatura ✓ |
