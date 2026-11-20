@@ -17,3 +17,6 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-23 | 20:00 | 006 | The Konami Code Exists Because He Couldn't Win 🎮 | programado · I4uIUBMA_bE (sin miniatura propia) |
 | 2026-11-21 | 20:00 | 007 | The First Easter Egg Was A Programmer's Revenge 🥚 | programado · L2L8LI7iHE0 (sin miniatura propia) |
 | 2026-11-25 | 20:00 | 008 | The PlayStation Was Supposed To Be A Nintendo 🎮 | programado · ePnQzJPO0R4 (sin miniatura propia) |
+| 2026-11-26 | 20:00 | 011 | This Game Boy Survived A Bombing 💥 | programado · -VtHpYZJkmU (sin miniatura propia) |
+| 2026-11-27 | 20:00 | 012 | Zelda Started With A Kid Scared Of A Cave 🏮 | programado · AM2nYNCb9CE (sin miniatura propia) |
+| 2026-11-29 | 20:00 | 010 | This Fighting Game Move Started As A Bug 👊 | programado · VH5BPixTGtA (sin miniatura propia) |

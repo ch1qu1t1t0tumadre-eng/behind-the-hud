@@ -11,3 +11,6 @@
 | 2026-11-19 | 007 | Adventure (Atari 2600, 1980): Warren Robinett escondió su nombre en una sala secreta porque Atari no daba créditos; primer easter egg famoso |
 | 2026-11-19 | 008 | La PlayStation nació como lector de CD para la Super Nintendo; Nintendo anunció a Philips en el CES de 1991 al día siguiente que Sony |
 | 2026-11-19 | 009 | GTA V ($800M día 1, $1B en 3 días, 2013) vs GTA VI (≈$1,84B y ≈19M copias al salir, estimación Sensor Tower, 19/11/2026) |
+| 2026-11-20 | 010 | Combos de Street Fighter II: Funamizu descubrió el cancelado de animaciones al probar el bonus del coche (1991) y lo dejaron |
+| 2026-11-20 | 011 | Game Boy de Stephan Scoggins que sobrevivió a un bombardeo en la Guerra del Golfo (1991); expuesta en Nintendo NY hasta 2023 |
+| 2026-11-20 | 012 | Zelda nació de la cueva que Miyamoto exploró de niño en Sonobe (Kioto) con un farol |
