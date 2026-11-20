@@ -590,3 +590,65 @@ def subtitulo_hud(ctx, chunk, T):
         cap_combo(ctx, w, lt, acc)
     else:
         CAP_STYLES[sent % len(CAP_STYLES)](ctx, w, lt, acc)
+
+
+# ---------- piezas comunes añadidas en 006 ----------
+def stamp(ctx, txt, x, y, appear, rgb=RED, rot=-0.18, size=74):
+    """Sello que cae con golpe (texto en caja con borde)."""
+    if appear <= 0.01:
+        return
+    s = lerp(2.2, 1.0, ease(clamp(appear)))
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s)
+    ctx.select_font_face("Anton"); ctx.set_font_size(size)
+    w = ctx.text_extents(txt)[4]
+    rrect(ctx, -w / 2 - 34, -size * 0.75, w + 68, size * 1.5, 16)
+    fill_keep(ctx, (0.06, 0.02, 0.04), 0.88 * min(1, appear * 1.5))
+    stroke(ctx, rgb, 10, min(1, appear * 1.5))
+    text(ctx, txt, 0, 0, size, rgb, a=min(1, appear * 1.5), font="Anton", shadow=False)
+    ctx.restore()
+
+
+def x_mark(ctx, x, y, r, p, rgb=RED, w=26):
+    """Aspa roja que se dibuja (p 0..1)."""
+    if p <= 0:
+        return
+    for sgn in (1, -1):
+        q = clamp(p * 2 - (0 if sgn == 1 else 1))
+        if q > 0:
+            ctx.move_to(x - r, y - sgn * r); ctx.line_to(x - r + 2 * r * q, y - sgn * r + sgn * 2 * r * q)
+            ctx.set_line_cap(cairo.LINE_CAP_ROUND); stroke(ctx, rgb, w)
+
+
+def tile(ctx, ch, x, y, size, appear=1.0, rgb=YELLOW, rot=0.0, bg=(0.06, 0.07, 0.14)):
+    """Ficha cuadrada con una letra/símbolo (botón, tecla)."""
+    if appear <= 0.01:
+        return
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(appear, appear)
+    rrect(ctx, -size / 2 + 8, -size / 2 + 12, size, size, size * 0.14); fill(ctx, (0, 0, 0), 0.4)
+    rrect(ctx, -size / 2, -size / 2, size, size, size * 0.14); fill_keep(ctx, bg); stroke(ctx, rgb, size * 0.05)
+    glow(ctx, 0, 0, size * 0.8, rgb, 0.12)
+    text(ctx, ch, 0, size * 0.05, size * 0.72, rgb, font="Anton", shadow=False)
+    ctx.restore()
+
+
+def gamepad(ctx, x, y, s, T, press=None, col=(0.22, 0.22, 0.30), accent=CYAN):
+    """Mando genérico rectangular (diseño propio). press: 'up','down','left','right','B','A' resalta."""
+    ctx.save(); ctx.translate(x, y); ctx.scale(s, s)
+    rrect(ctx, -330, -140, 660, 280, 70); fill(ctx, col)
+    rrect(ctx, -330, -140, 660, 280, 70); stroke(ctx, accent, 6, 0.7)
+    dirs = {"up": (0, -55), "down": (0, 55), "left": (-55, 0), "right": (55, 0)}
+    ctx.rectangle(-230 - 25, -80, 50, 160); fill(ctx, (0.08, 0.08, 0.1))
+    ctx.rectangle(-230 - 80, -25, 160, 50); fill(ctx, (0.08, 0.08, 0.1))
+    if press in dirs:
+        dx, dy = dirs[press]
+        rrect(ctx, -230 + dx - 25, dy - 25, 50, 50, 8); fill(ctx, YELLOW)
+        glow(ctx, -230 + dx, dy, 80, YELLOW, 0.4)
+    for lab, bx in (("B", 150), ("A", 250)):
+        on = press == lab
+        circle(ctx, bx, 20, 44); fill(ctx, YELLOW if on else RED)
+        if on:
+            glow(ctx, bx, 20, 100, YELLOW, 0.4)
+        text(ctx, lab, bx, 100, 36, WHITE, font="Anton", shadow=False)
+    for k in (-50, 30):
+        rrect(ctx, k, 60, 60, 18, 9); fill(ctx, (0.08, 0.08, 0.1))
+    ctx.restore()
