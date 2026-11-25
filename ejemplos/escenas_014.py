@@ -358,3 +358,4 @@ def MINIATURA(ctx):
     thumb_arrow(ctx, 130, 1760, W / 2 + 200, 1235)
     thumb_vignette(ctx)
     thumb_text(ctx, [("HACKED WITH", WHITE), "A HOTEL TV?"], y=330)
+CTA = 18.6  # aviso SUBSCRIBE · LIKE · SHARE durante el contador de visitas (no tapa datos clave)

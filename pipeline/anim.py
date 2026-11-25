@@ -548,6 +548,76 @@ def build_chunks(words, max_words=2):
     return out
 
 
+def build_chunks_lectura(words, max_words=3, max_chars=16, min_dur=0.6):
+    """Subtítulos legibles (petición del dueño, 25/11/2026): 2-3 palabras por subtítulo.
+    Con la voz a ~195 ppm, una palabra suelta duraba ~0,3 s y no daba tiempo a leerla.
+    Corta primero por la puntuación (frases) y reparte cada frase en trozos equilibrados de <= max_words
+    palabras / max_chars letras, sin dejar una palabra sola al final ni separar «GTA 6»."""
+    ws = [w for w in words if w.get("type", "word") == "word" and not w["text"].startswith("[")]
+    # tokens: «GTA 6», «Part 2»… van juntos
+    toks = []
+    for w in ws:
+        core = w["text"].rstrip(".,?!:;")
+        if toks and core.isdigit() and len(core) <= 2 and toks[-1][-1]["text"][-1] not in ".,?!:;":
+            toks[-1].append(w)
+        else:
+            toks.append([w])
+    tlen = lambda t: len(" ".join(x["text"] for x in t))
+    # frases
+    frases, cur = [], []
+    for t in toks:
+        cur.append(t)
+        if t[-1]["text"][-1] in ".,?!:;":
+            frases.append(cur); cur = []
+    if cur:
+        frases.append(cur)
+    chunks = []
+    for f in frases:
+        n = len(f)
+        # DP: mínimo nº de trozos y, a igualdad, el más equilibrado
+        best = [(0, 0.0, [])] + [None] * n
+        for e in range(1, n + 1):
+            for b in range(max(0, e - max_words), e):
+                seg = f[b:e]
+                L = sum(tlen(t) for t in seg) + len(seg) - 1
+                if L > max_chars and e - b > 1:
+                    continue
+                if best[b] is None:
+                    continue
+                k, cost, parts = best[b]
+                cand = (k + 1, cost + (L - 11) ** 2, parts + [(b, e)])
+                if best[e] is None or cand[:2] < best[e][:2]:
+                    best[e] = cand
+        for b, e in best[n][2]:
+            chunks.append([w for t in f[b:e] for w in t])
+    # un trozo muy corto (< min_dur) se une al siguiente si cabe y no acaba frase
+    merged = []
+    for c in chunks:
+        if merged:
+            prev = merged[-1]
+            dur = c[0]["start"] - prev[0]["start"]
+            L = len(" ".join(x["text"] for x in prev + c))
+            if dur < min_dur * 0.6 and prev[-1]["text"][-1] not in ".?!" and L <= max_chars + 2:
+                merged[-1] = prev + c
+                continue
+        merged.append(c)
+    out, sent = [], 0
+    for i, c in enumerate(merged):
+        end = merged[i + 1][0]["start"] if i + 1 < len(merged) else c[-1]["end"] + 0.3
+        out.append({"words": c, "start": c[0]["start"], "end": end, "i": i, "sent": sent})
+        if c[-1]["text"][-1] in ".?!":
+            sent += 1
+    return out
+
+
+def _chunks(mod, words):
+    if hasattr(mod, "PALABRAS_POR_SUBTITULO"):
+        return build_chunks(words, mod.PALABRAS_POR_SUBTITULO)
+    if getattr(mod, "SUBTITULO", None) is not None:
+        return build_chunks_lectura(words, getattr(mod, "SUB_MAX_PALABRAS", 3), getattr(mod, "SUB_MAX_CHARS", 16))
+    return build_chunks(words, 1 if getattr(mod, "ESTILO_SUBTITULO", "grande") == "grande" else 2)
+
+
 def draw_captions(ctx, chunk, T, y=1470, size=64):
     words = [w["text"] for w in chunk["words"]]
     space = text_width(ctx, " ", size)
@@ -828,7 +898,7 @@ def render(workdir):
     # COLA: silencio tras la última palabra. Casi 0 para que el final enlace con el principio (bucle).
     nframes = int(dur * FPS)
     escenas = sorted(mod.ESCENAS, key=lambda e: e[0])
-    chunks = build_chunks(words, getattr(mod, "PALABRAS_POR_SUBTITULO", 1 if getattr(mod, "ESTILO_SUBTITULO", "grande") == "grande" else 2))
+    chunks = _chunks(mod, words)
     # sonido: whoosh en cada cambio de escena + efectos que pida escenas.py (SFX = [(t, "pop"|"ding"|"tick"|"rise"|"whoosh"), ...])
     sys.path.insert(0, HERE)
     import sonido
@@ -892,7 +962,7 @@ def preview(workdir, times):
     spec_mod.loader.exec_module(mod)
     words = json.load(open(os.path.join(workdir, "words.json")))["words"]
     escenas = sorted(mod.ESCENAS, key=lambda e: e[0])
-    chunks = build_chunks(words, getattr(mod, "PALABRAS_POR_SUBTITULO", 1 if getattr(mod, "ESTILO_SUBTITULO", "grande") == "grande" else 2))
+    chunks = _chunks(mod, words)
     dur = max(w.get("end", 0) for w in words) + getattr(mod, "COLA", 0.08)
     paths = []
     for T in times:

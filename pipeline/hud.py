@@ -492,11 +492,11 @@ def _path(ctx, w, x, y):
 def cap_neon(ctx, w, lt, acc):
     """Letras blancas con halo de neón del color de la frase."""
     size, adv = _fit(ctx, "Anton", w, 170)
-    k = ease_back(clamp(lt / 0.16))
-    ctx.save(); ctx.translate(W / 2, CAP_Y); ctx.scale(0.6 + 0.4 * k, 0.6 + 0.4 * k)
+    k = ease_back(clamp(lt / 0.08))
+    ctx.save(); ctx.translate(W / 2, CAP_Y); ctx.scale(0.8 + 0.2 * k, 0.8 + 0.2 * k)
     x0, y0 = -adv / 2, size * 0.36
     ctx.set_line_join(cairo.LINE_JOIN_ROUND)
-    flick = 0.85 + 0.15 * math.sin(lt * 40) if lt < 0.25 else 1.0
+    flick = 0.85 + 0.15 * math.sin(lt * 40) if lt < 0.12 else 1.0
     for lw, a in ((46, 0.12), (30, 0.22), (18, 0.45)):
         _path(ctx, w, x0, y0); ctx.set_source_rgba(*acc, a * flick); ctx.set_line_width(lw); ctx.stroke()
     _path(ctx, w, x0, y0); ctx.set_source_rgb(0.02, 0.02, 0.05); ctx.set_line_width(10); ctx.stroke()
@@ -505,32 +505,50 @@ def cap_neon(ctx, w, lt, acc):
 
 
 def cap_arcade(ctx, w, lt, acc):
-    """Letra pixelada de recreativa que se escribe letra a letra, con sombra dura."""
-    size, adv = _fit(ctx, "Press Start 2P", w, 92)
-    n = max(1, int(math.ceil(len(w) * clamp(lt / 0.2))))
-    shown = w[:n]
-    x0, y0 = W / 2 - adv / 2, CAP_Y + size * 0.5
+    """Letra pixelada de recreativa (escritura casi instantánea, 0,06 s); en 2 líneas si es larga."""
+    words = w.split()
+    if len(w) > 10 and len(words) > 1:
+        best = min(range(1, len(words)), key=lambda k: abs(len(" ".join(words[:k])) - len(" ".join(words[k:]))))
+        lines = [" ".join(words[:best]), " ".join(words[best:])]
+    else:
+        lines = [w]
+    size = 92
+    ctx.select_font_face("Press Start 2P", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+    for ln in lines:
+        ctx.set_font_size(size)
+        adv = ctx.text_extents(ln)[4]
+        if adv > CAP_MAXW:
+            size *= CAP_MAXW / adv
+    ctx.set_font_size(size)
+    total = sum(len(x) for x in lines)
+    n = max(1, int(math.ceil(total * clamp(lt / 0.06))))
+    lh = size * 1.35
+    y_first = CAP_Y + size * 0.5 - (len(lines) - 1) * lh / 2
     ctx.set_line_join(cairo.LINE_JOIN_MITER)
-    _path(ctx, shown, x0 + 10, y0 + 10); ctx.set_source_rgb(*acc); ctx.fill()
-    _path(ctx, shown, x0, y0); ctx.set_source_rgb(0, 0, 0); ctx.set_line_width(12); ctx.stroke()
-    _path(ctx, shown, x0, y0); ctx.set_source_rgb(1, 1, 1); ctx.fill()
-    if n < len(w) or (lt < 0.6 and int(lt * 6) % 2 == 0):
-        cw = ctx.text_extents(shown)[4]
-        ctx.rectangle(x0 + cw + 10, y0 - size * 0.95, size * 0.55, size * 0.95); ctx.set_source_rgb(*acc); ctx.fill()
+    for k, ln in enumerate(lines):
+        shown = ln[:max(0, n)]
+        n -= len(ln)
+        if not shown:
+            continue
+        adv = ctx.text_extents(ln)[4]
+        x0, y0 = W / 2 - adv / 2, y_first + k * lh
+        _path(ctx, shown, x0 + 8, y0 + 8); ctx.set_source_rgb(*acc); ctx.fill()
+        _path(ctx, shown, x0, y0); ctx.set_source_rgb(0, 0, 0); ctx.set_line_width(12); ctx.stroke()
+        _path(ctx, shown, x0, y0); ctx.set_source_rgb(1, 1, 1); ctx.fill()
 
 
 def cap_glitch(ctx, w, lt, acc):
     """La palabra entra 'rota' (canales rojo/cian desplazados) y se estabiliza."""
     size, adv = _fit(ctx, "Anton", w, 175)
     x0, y0 = W / 2 - adv / 2, CAP_Y + size * 0.36
-    amt = 26 * (1 - clamp(lt / 0.22)) + 4
+    amt = 22 * (1 - clamp(lt / 0.10)) + 4
     rng = np.random.default_rng(int(lt * 30) + len(w))
     ctx.set_line_join(cairo.LINE_JOIN_ROUND)
     _path(ctx, w, x0, y0); ctx.set_source_rgb(0, 0, 0); ctx.set_line_width(20); ctx.stroke()
     for dx, col in ((-amt, (1, 0.15, 0.3)), (amt, (0.1, 0.9, 1))):
         _path(ctx, w, x0 + dx, y0); ctx.set_source_rgba(*col, 0.85); ctx.fill()
     _path(ctx, w, x0, y0); ctx.set_source_rgb(1, 1, 1); ctx.fill()
-    if lt < 0.25:  # cortes horizontales
+    if lt < 0.10:  # cortes horizontales
         for _ in range(4):
             yy = CAP_Y + rng.uniform(-size * 0.6, size * 0.3)
             ctx.rectangle(W / 2 - adv / 2 - 30, yy, adv + 60, rng.uniform(6, 16))
@@ -540,8 +558,8 @@ def cap_glitch(ctx, w, lt, acc):
 def cap_combo(ctx, w, lt, acc):
     """Dorado/naranja con rebote fuerte, como un 'COMBO x2'. Para números y años."""
     size, adv = _fit(ctx, "Bangers", w, 185)
-    k = ease_back(clamp(lt / 0.14))
-    s = 0.4 + 0.6 * k + (0.06 * math.sin(lt * 18) * math.exp(-lt * 4))
+    k = ease_back(clamp(lt / 0.09))
+    s = 0.7 + 0.3 * k + (0.06 * math.sin(lt * 18) * math.exp(-lt * 4))
     ctx.save(); ctx.translate(W / 2, CAP_Y); ctx.rotate(-0.06); ctx.scale(s, s)
     x0, y0 = -adv / 2, size * 0.36
     ctx.set_line_join(cairo.LINE_JOIN_ROUND)
@@ -563,8 +581,8 @@ def cap_combo(ctx, w, lt, acc):
 def cap_panel(ctx, w, lt, acc):
     """Panel de notificación de juego que entra deslizándose, con la palabra dentro."""
     size, adv = _fit(ctx, "Montserrat", w, 112, maxw=820, weight=cairo.FONT_WEIGHT_BOLD)
-    p = ease(clamp(lt / 0.16))
-    dx = (1 - p) * -260
+    p = ease(clamp(lt / 0.08))
+    dx = (1 - p) * -160
     pw, ph = adv + 90, size * 1.45
     x, y = W / 2 - pw / 2 + dx, CAP_Y - ph / 2
     rrect(ctx, x + 8, y + 10, pw, ph, 18); fill(ctx, (0, 0, 0), 0.55 * p)

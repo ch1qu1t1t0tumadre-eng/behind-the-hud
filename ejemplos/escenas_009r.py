@@ -361,3 +361,4 @@ def MINIATURA(ctx):
     thumb_arrow(ctx, 160, 1850, W / 2 - 60, 1300)
     thumb_vignette(ctx)
     thumb_text(ctx, [("3 GTA 6 FACTS", WHITE), "YOU MISSED"], y=330)
+CTA = 28.1  # aviso SUBSCRIBE · LIKE · SHARE justo después del «in other words»

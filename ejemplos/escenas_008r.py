@@ -281,3 +281,4 @@ def MINIATURA(ctx):
     thumb_arrow(ctx, 950, 1900, W / 2 + 330, 1640)
     thumb_vignette(ctx)
     thumb_text(ctx, [("THEY ALMOST", WHITE), "MADE THIS"], y=330)
+CTA = 22.9  # aviso SUBSCRIBE · LIKE · SHARE justo después del «in other words»
