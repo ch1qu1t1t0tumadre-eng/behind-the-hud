@@ -19,7 +19,7 @@ Si sale 0 o menos, no hagas nada y avisa al dueño (cuándo se renuevan los cré
 ## 2. Tema y guion (skills yt-shorts-hook-writer + yt-shorts-scripter, adaptadas a videojuegos)
 - Tema: protagonista famoso (juego, consola, empresa o diseñador) + giro inesperado. Rota épocas y temas: arcade, consolas, PC, empresas, diseñadores, bugs, récords, ventas, censura, desarrollo, hardware.
 - **Dato verificado con WebSearch en 2 fuentes** antes de escribir. Nada inventado, nada de rumores.
-- Formato BUCLE: la primera frase es el gancho (famoso + giro), «In other words…» como 2.º gancho a mitad, mini-giro cada 2–3 frases, sin llamadas a la acción, y la última frase se corta para enlazar con la primera.
+- Formato BUCLE: la primera frase es el gancho (famoso + giro), «In other words…» como 2.º gancho a mitad, mini-giro cada 2–3 frases, sin llamadas a la acción en la voz (el aviso Subscribe/Like/Share va solo en pantalla, ver paso 4), y la última frase se corta para enlazar con la primera.
 - 125–140 palabras (680–780 caracteres). Protagonista nombrado 4–7 veces. Etiquetas de ElevenLabs v4: `[intrigued]` al inicio y `[dramatic]` antes de «In other words». Guarda el texto en `trabajo/<id>/voz.txt`.
 - Ejemplos: `ejemplos/guion_v01.txt` … `guion_v03.txt`.
 
@@ -42,6 +42,7 @@ Si sale 0 o menos, no hagas nada y avisa al dueño (cuándo se renuevan los cré
 - **Subtítulos**: `SUBTITULO = subtitulo_hud` (definido en `hud.py`). Hay 5 estilos gamer que cambian en cada frase: NEÓN, ARCADE (pixel, letra a letra), GLITCH, panel HUD y COMBO, que es dorado y se usa siempre para números y años. No uses el subtítulo amarillo de «Wait, What.».
 - Estilo: fondos `bg_arcade`, `bg_desert`, `bg_blueprint`, `bg_dark`; marco `hud(ctx, T, TAG, color)` en todas las escenas; contadores con `big_number`; `ficha()` para cada persona nombrada; palabra gigante amarilla (la pone anim.py).
 - 15–18 escenas, cada una ≤ 3,5 s, cambio de plano cuando cambia la frase (tiempos de `words.json`). **La última escena = la primera** (bucle). El «In other words» lleva el plano más fuerte (zoom rápido + rayos).
+- **Aviso SUBSCRIBE · LIKE · SHARE (petición del dueño, 25/11/2026): solo en pantalla, sin voz.** `anim.py` lo pone solo en todos los Shorts: un panel animado de 2,6 s abajo (y ≈ 1420) a mitad del vídeo, con un botón SUBSCRIBE que se pulsa, LIKE y SHARE, más un «pop». Para moverlo, pon en escenas.py `CTA = <segundos>`: mejor justo después del «In other words» o al empezar el dato 2/3. Nunca en los 3 primeros segundos ni en los 3 últimos, para no romper el gancho ni el bucle. `CTA = None` lo quita. Nunca digas «like», «subscribe» ni «share» en la voz.
 - Cámara siempre centrada en `cy = 960`. Gráficos en y 250–900 y etiquetas en y 1300–1450. **La franja 950–1170 queda libre para el subtítulo.**
 - **Prohibido**: personajes con copyright, logos, carátulas, sprites originales de juegos, fotos de personas reales. Dibuja versiones genéricas o propias (ver los alienígenas de `hud.py` y la consola portátil de `ejemplos/escenas_v03.py`). Para un juego concreto, usa su nombre en texto, nunca su arte.
 - Revisa los previews: `python3 pipeline/anim.py trabajo/<id> preview t1 t2 …` (uno por escena) → hoja de contactos → corrige solapes, texto cortado, cosas tapadas por el subtítulo. Después haz el render final con `python3 pipeline/anim.py trabajo/<id>`, que genera `short.mp4`.

@@ -724,11 +724,62 @@ def thumb_vignette(ctx, a=0.55):
 
 # ---------- render ----------
 
+
+def cta_time(mod, dur):
+    """Momento del aviso Subscribe/Like/Share (petición del dueño, 25/11/2026: en pantalla, sin voz).
+    Por defecto a mitad del vídeo. En escenas.py: CTA = segundos (p. ej. justo después del «in other words») o CTA = None para quitarlo."""
+    if hasattr(mod, "CTA"):
+        return mod.CTA
+    return round(dur * 0.5, 2)
+
+
+def _cta(ctx, T, t0, d=2.6):
+    """Panel «SUBSCRIBE · LIKE · SHARE» animado, abajo (y≈1420), sin tapar el subtítulo. Genérico: sin logos."""
+    lt = T - t0
+    if lt < 0 or lt > d:
+        return
+    a = clamp(lt / 0.15) * clamp((d - lt) / 0.25)
+    s = 0.6 + 0.4 * ease_back(clamp(lt / 0.35))
+    ctx.save(); ctx.translate(W / 2, 1420); ctx.scale(s, s)
+    rrect(ctx, -455, -95, 910, 190, 30); fill_keep(ctx, (0.02, 0.02, 0.04), 0.93 * a)
+    stroke(ctx, (0.72, 1.0, 0.0), 7, a)
+    # botón SUBSCRIBE que se pulsa a los 0,9 s
+    pressed = lt > 0.9
+    bx = -215
+    rrect(ctx, bx - 175, -52, 350, 104, 52)
+    fill(ctx, (0.30, 0.30, 0.34) if pressed else (0.90, 0.13, 0.13), a)
+    if pressed:
+        text(ctx, "SUBSCRIBED", bx - 22, 0, 44, WHITE, a=a, font="Anton", shadow=False)
+        ctx.move_to(bx + 100, 2); ctx.line_to(bx + 116, 18); ctx.line_to(bx + 146, -16); stroke(ctx, (0.72, 1.0, 0.0), 9, a)
+    else:
+        text(ctx, "SUBSCRIBE", bx, 0, 50, WHITE, a=a, font="Anton", shadow=False)
+    # cursor/mano que entra y pulsa
+    hx = lerp(bx + 260, bx + 60, ease(clamp((lt - 0.35) / 0.5)))
+    hy = lerp(150, 40, ease(clamp((lt - 0.35) / 0.5))) + (8 if 0.85 < lt < 1.0 else 0)
+    icon(ctx, "👆", hx, hy + 40, 90, a)
+    # LIKE y SHARE
+    for i, (em, lab) in enumerate((("👍", "LIKE"), ("📲", "SHARE"))):
+        x = 150 + i * 190
+        p = clamp((lt - 1.1 - i * 0.25) / 0.3)
+        sc = 1.0 + 0.25 * math.sin(math.pi * p) if p < 1 else 1.0
+        if lab == "SHARE":
+            ctx.save(); ctx.translate(x, -18); ctx.scale(sc * max(p, 0.01), sc * max(p, 0.01))
+            ctx.move_to(-34, 30); ctx.curve_to(-34, -8, -8, -18, 22, -18); stroke(ctx, WHITE, 12, a)
+            ctx.move_to(8, -40); ctx.line_to(40, -18); ctx.line_to(8, 4); ctx.close_path(); fill(ctx, WHITE, a)
+            ctx.restore()
+        else:
+            icon(ctx, em, x, -18, 84 * sc, a * max(p, 0.01))
+        text(ctx, lab, x, 58, 34, (0.72, 1.0, 0.0), a=a * (0.35 + 0.65 * p), font="Anton", shadow=False)
+    ctx.restore()
+
 def _overlays(ctx, mod, T, dur):
     """Capas fijas por encima de las escenas (reglas de retención del 25/11/2026).
     HOOK = "TEXTO"        -> gancho fijo arriba de 0 a HOOK_FIN s (3,0 por defecto) y en los últimos HOOK_COLA s (bucle).
     LISTA = [(t, "1/3"), (t, "2/3"), (t, "3/3")] -> contador del formato lista, arriba a la derecha.
     """
+    t_cta = cta_time(mod, dur)
+    if t_cta is not None:
+        _cta(ctx, T, t_cta)
     hook = getattr(mod, "HOOK", None)
     if hook:
         fin, cola = getattr(mod, "HOOK_FIN", 3.0), getattr(mod, "HOOK_COLA", 1.6)
@@ -782,6 +833,8 @@ def render(workdir):
     sys.path.insert(0, HERE)
     import sonido
     eventos = [(e[0] - 0.12, "whoosh") for e in escenas[1:]] + [x for x in getattr(mod, "SFX", []) if x[1] in ("pop", "ding")]
+    if cta_time(mod, dur) is not None:
+        eventos.append((cta_time(mod, dur) + 0.9, "pop"))
     fx_path = os.path.join(workdir, "fx.wav")
     sonido.mezcla(dur, eventos, fx_path, seed=abs(hash(os.path.basename(os.path.abspath(workdir)))) % 1000)
 
