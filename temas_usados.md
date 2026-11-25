@@ -15,3 +15,4 @@
 | 2026-11-20 | 011 | Game Boy de Stephan Scoggins que sobrevivió a un bombardeo en la Guerra del Golfo (1991); expuesta en Nintendo NY hasta 2023 |
 | 2026-11-20 | 012 | Zelda nació de la cueva que Miyamoto exploró de niño en Sonobe (Kioto) con un farol |
 | 2026-11-25 | 013 | Niebla de Silent Hill (PS1, 1999, Team Silent/Konami): niebla y oscuridad para ocultar la poca distancia de dibujado y el pop-in; la crítica dijo que lo hacía más terrorífico (radio con estática, linterna corta) |
+| 2026-11-25 | 009-L | GTA 6 en formato lista: (1) ~$1,84B estimados por Sensor Tower al salir vs ~$800M del día 1 de GTA V; (2) Lucia, primera protagonista femenina de un GTA moderno (el GTA de 1997 solo tenía avatares femeninos sin historia); (3) ~1,5 millones de personas estimadas faltarían al trabajo para jugar |

@@ -723,6 +723,48 @@ def thumb_vignette(ctx, a=0.55):
 
 
 # ---------- render ----------
+
+def _overlays(ctx, mod, T, dur):
+    """Capas fijas por encima de las escenas (reglas de retención del 25/11/2026).
+    HOOK = "TEXTO"        -> gancho fijo arriba de 0 a HOOK_FIN s (3,0 por defecto) y en los últimos HOOK_COLA s (bucle).
+    LISTA = [(t, "1/3"), (t, "2/3"), (t, "3/3")] -> contador del formato lista, arriba a la derecha.
+    """
+    hook = getattr(mod, "HOOK", None)
+    if hook:
+        fin, cola = getattr(mod, "HOOK_FIN", 3.0), getattr(mod, "HOOK_COLA", 1.6)
+        if T < fin or T > dur - cola:
+            a = 1.0 if T < fin - 0.25 or T > dur - cola else clamp((fin - T) / 0.25)
+            size = getattr(mod, "HOOK_SIZE", 72)
+            ctx.save()
+            ctx.select_font_face("Anton", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+            ctx.set_font_size(size)
+            w = ctx.text_extents(hook)[4]
+            if w > 900:
+                size *= 900 / w
+                ctx.set_font_size(size)
+                w = ctx.text_extents(hook)[4]
+            y = getattr(mod, "HOOK_Y", 282)
+            rrect(ctx, W / 2 - w / 2 - 36, y - size * 0.78, w + 72, size * 1.56, 18)
+            fill_keep(ctx, (0.02, 0.02, 0.03), 0.90 * a)
+            stroke(ctx, (0.72, 1.0, 0.0), 8, a)
+            text(ctx, hook, W / 2, y, size, WHITE, a=a, font="Anton", shadow=False)
+            ctx.restore()
+    lista = getattr(mod, "LISTA", None)
+    if lista and not (hook and T > dur - getattr(mod, "HOOK_COLA", 1.6)):
+        act = [x for x in lista if x[0] <= T]
+        if act:
+            t0, lab = act[-1]
+            lt = T - t0
+            s = 1.0 + 0.5 * clamp(1 - lt / 0.25)
+            ctx.save(); ctx.translate(W - 170, 330); ctx.scale(s, s)
+            rrect(ctx, -110, -62, 220, 124, 16); fill_keep(ctx, (0.02, 0.02, 0.03), 0.9)
+            stroke(ctx, (0.72, 1.0, 0.0), 7)
+            text(ctx, lab, 0, 0, 92, (0.72, 1.0, 0.0), font="Anton", shadow=False)
+            ctx.restore()
+            if lt < 0.15:
+                ctx.set_source_rgba(1, 1, 1, 0.25 * (1 - lt / 0.15)); ctx.paint()
+
+
 def render(workdir):
     spec_mod = importlib.util.spec_from_file_location("escenas", os.path.join(workdir, "escenas.py"))
     mod = importlib.util.module_from_spec(spec_mod)
@@ -774,6 +816,7 @@ def render(workdir):
         if k > 0 and T - t0 < 0.12:
             ctx.set_source_rgba(1, 1, 1, 0.18 * (1 - (T - t0) / 0.12))
             ctx.paint()
+        _overlays(ctx, mod, T, dur)
         ch = next((c for c in chunks if c["start"] <= T < c["end"]), None)
         if ch:
             _captions(ctx, mod, ch, T)
@@ -797,6 +840,7 @@ def preview(workdir, times):
     words = json.load(open(os.path.join(workdir, "words.json")))["words"]
     escenas = sorted(mod.ESCENAS, key=lambda e: e[0])
     chunks = build_chunks(words, getattr(mod, "PALABRAS_POR_SUBTITULO", 1 if getattr(mod, "ESTILO_SUBTITULO", "grande") == "grande" else 2))
+    dur = max(w.get("end", 0) for w in words) + getattr(mod, "COLA", 0.08)
     paths = []
     for T in times:
         k = max([j for j, e in enumerate(escenas) if e[0] <= T] or [0])
@@ -806,6 +850,7 @@ def preview(workdir, times):
         ctx.save()
         escenas[k][1](ctx, T - escenas[k][0], t1 - escenas[k][0], T)
         ctx.restore()
+        _overlays(ctx, mod, T, dur)
         ch = next((c for c in chunks if c["start"] <= T < c["end"]), None)
         if ch:
             _captions(ctx, mod, ch, T)

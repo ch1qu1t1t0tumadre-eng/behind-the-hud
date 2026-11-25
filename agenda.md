@@ -1,9 +1,9 @@
 # Agenda de publicación (Europe/Madrid)
 
-> Regla del dueño: **todos los Shorts se publican a las 20:00 (hora de España)**. No usar otras horas.
+> Regla del dueño (25/11/2026): **2 Shorts al día, a las 20:00 y a las 22:00 (hora de España)**. La hora de las 17:00 ya no se usa.
 
 
-Hueco diario: **20:00** (1 Short al día desde el 20/11/2026). Cada vídeo se sube como privado + programado.
+Huecos diarios: **20:00 y 22:00** (2 Shorts al día desde el 26/11/2026; antes 1 a las 20:00). Cada vídeo se sube como privado + programado.
 Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus horas antes de ocupar un hueco.
 
 | fecha | hora | id | título | estado |
@@ -15,11 +15,19 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-24 | 20:00 | 004 | Nintendo Is 137 Years Old. It Didn't Start With Games 🎴 | programado · J16TlvnTum4 |
 | 2026-11-22 | 20:00 | 005 | Pac-Man Wasn't Called Pac-Man At First 🕹️ | programado · YU-36FsOTog · miniatura ✓ |
 | 2026-11-19 | 22:30 | 009 | GTA 6 vs GTA 5: Who Made More At Launch? 💰 | original pasado a privado el 21/11 · GRHP1x0xF6Q |
-| 2026-11-25 | 17:00 | 009-R | GTA 6 Made More Than GTA 5 Before It Even Launched 💰 (resubida) | programado · JhbnfAGWi1M · miniatura ✓ · adelantado desde el 29/11 20:00 |
+| — | — | 009-R | GTA 6 Beat GTA 5 Before Launch 💰 (resubida) | pasado a privado el 25/11 · JhbnfAGWi1M · sustituido por 009-L |
 | 2026-11-23 | 20:00 | 006 | The Konami Code Exists Because He Couldn't Win 🎮 | programado · I4uIUBMA_bE · miniatura ✓ |
 | 2026-11-21 | 20:00 | 007 | The First Easter Egg Was A Programmer's Revenge 🥚 | programado · L2L8LI7iHE0 · miniatura ✓ |
-| 2026-11-25 | 20:00 | 008 | The PlayStation Was Supposed To Be A Nintendo 🎮 | programado · ePnQzJPO0R4 · miniatura ✓ |
-| 2026-11-26 | 20:00 | 011 | This Game Boy Survived A Bombing 💥 | programado · -VtHpYZJkmU · miniatura ✓ |
-| 2026-11-27 | 20:00 | 012 | Zelda Started With A Kid Scared Of A Cave 🏮 | programado · AM2nYNCb9CE · miniatura ✓ |
-| 2026-11-28 | 20:00 | 010 | This Fighting Game Move Started As A Bug 👊 | programado · VH5BPixTGtA · miniatura ✓ |
-| 2026-11-29 | 20:00 | 013 | Silent Hill's Fog Wasn't Supposed To Be Scary 🌫️ | programado · 8ei_2fcd4uQ · miniatura ✓ |
+| — | — | 008 | PlayStation Was Almost A Nintendo 🎮 | pasado a privado el 25/11 · ePnQzJPO0R4 · sustituido por 008r |
+| — | — | 011 | This Game Boy Survived A Bomb 💥 | pasado a privado el 25/11 · -VtHpYZJkmU · sustituido por 011r |
+| — | — | 012 | Zelda Exists Because Of A Cave 🏮 | pasado a privado el 25/11 · AM2nYNCb9CE · sustituido por 012r |
+| — | — | 010 | Street Fighter Combos Were A Bug 👊 | pasado a privado el 25/11 · VH5BPixTGtA · sustituido por 010r |
+| — | — | 013 | Silent Hill's Fog Was Hiding Something 🌫️ | pasado a privado el 25/11 · 8ei_2fcd4uQ · sustituido por 013r |
+| 2026-11-25 | 20:00 | 008r | PlayStation Was Almost A Nintendo 🎮 (rehecho, reglas de retención) | programado · Vto9SK9s0IU · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-25 | 22:00 | 009-L | 3 GTA 6 Facts You Didn't Know 🤯 (formato lista) | programado · xDxyNE7Jj_8 · miniatura ✓ · GTA 6 Facts You Didn't Know |
+| 2026-11-26 | 20:00 | 011r | This Game Boy Survived A Bomb 💥 (rehecho) | programado · QY41IWk1Ju8 · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-27 | 20:00 | 012r | Zelda Exists Because Of A Cave 🏮 (rehecho) | programado · _QGFR-bj7Yk · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-28 | 20:00 | 010r | Street Fighter Combos Were A Bug 👊 (rehecho) | programado · ZAyo9iP5H28 · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-29 | 20:00 | 013r | Silent Hill's Fog Was Hiding Something 🌫️ (rehecho) | programado · -e8JeG2RwSQ · miniatura ✓ · Gaming Lies You Believed |
+
+Huecos libres: 22:00 del 26 al 29/11; 20:00 y 22:00 del 30/11 en adelante.
