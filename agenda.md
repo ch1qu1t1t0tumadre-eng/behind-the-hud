@@ -22,3 +22,4 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-26 | 20:00 | 011 | This Game Boy Survived A Bombing 💥 | programado · -VtHpYZJkmU · miniatura ✓ |
 | 2026-11-27 | 20:00 | 012 | Zelda Started With A Kid Scared Of A Cave 🏮 | programado · AM2nYNCb9CE · miniatura ✓ |
 | 2026-11-28 | 20:00 | 010 | This Fighting Game Move Started As A Bug 👊 | programado · VH5BPixTGtA · miniatura ✓ |
+| 2026-11-30 | 20:00 | 013 | Silent Hill's Fog Wasn't Supposed To Be Scary 🌫️ | programado · 8ei_2fcd4uQ · miniatura ✓ |

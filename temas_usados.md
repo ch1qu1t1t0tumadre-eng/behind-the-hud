@@ -14,3 +14,4 @@
 | 2026-11-20 | 010 | Combos de Street Fighter II: Funamizu descubrió el cancelado de animaciones al probar el bonus del coche (1991) y lo dejaron |
 | 2026-11-20 | 011 | Game Boy de Stephan Scoggins que sobrevivió a un bombardeo en la Guerra del Golfo (1991); expuesta en Nintendo NY hasta 2023 |
 | 2026-11-20 | 012 | Zelda nació de la cueva que Miyamoto exploró de niño en Sonobe (Kioto) con un farol |
+| 2026-11-25 | 013 | Niebla de Silent Hill (PS1, 1999, Team Silent/Konami): niebla y oscuridad para ocultar la poca distancia de dibujado y el pop-in; la crítica dijo que lo hacía más terrorífico (radio con estática, linterna corta) |
