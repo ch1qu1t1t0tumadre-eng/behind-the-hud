@@ -26,8 +26,9 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-25 | 20:00 | 008r | PlayStation Was Almost A Nintendo 🎮 (rehecho, reglas de retención) | programado · Vto9SK9s0IU · miniatura ✓ · Gaming Lies You Believed |
 | 2026-11-25 | 22:00 | 009-L | 3 GTA 6 Facts You Didn't Know 🤯 (formato lista) | programado · xDxyNE7Jj_8 · miniatura ✓ · GTA 6 Facts You Didn't Know |
 | 2026-11-26 | 20:00 | 011r | This Game Boy Survived A Bomb 💥 (rehecho) | programado · QY41IWk1Ju8 · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-26 | 22:00 | 014-L | 3 GTA 6 Facts You Didn't Know (Part 2) 🤯 (formato lista) | programado · bxLgypPJP4Y · miniatura PENDIENTE (límite diario de YouTube; está en media/014.jpg) · GTA 6 Facts You Didn't Know |
 | 2026-11-27 | 20:00 | 012r | Zelda Exists Because Of A Cave 🏮 (rehecho) | programado · _QGFR-bj7Yk · miniatura ✓ · Gaming Lies You Believed |
 | 2026-11-28 | 20:00 | 010r | Street Fighter Combos Were A Bug 👊 (rehecho) | programado · ZAyo9iP5H28 · miniatura ✓ · Gaming Lies You Believed |
 | 2026-11-29 | 20:00 | 013r | Silent Hill's Fog Was Hiding Something 🌫️ (rehecho) | programado · -e8JeG2RwSQ · miniatura ✓ · Gaming Lies You Believed |
 
-Huecos libres: 22:00 del 26 al 29/11; 20:00 y 22:00 del 30/11 en adelante.
+Huecos libres: 22:00 del 27 al 29/11; 20:00 y 22:00 del 30/11 en adelante.
