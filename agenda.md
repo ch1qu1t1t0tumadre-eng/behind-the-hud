@@ -15,11 +15,11 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-24 | 20:00 | 004 | Nintendo Is 137 Years Old. It Didn't Start With Games 🎴 | programado · J16TlvnTum4 |
 | 2026-11-22 | 20:00 | 005 | Pac-Man Wasn't Called Pac-Man At First 🕹️ | programado · YU-36FsOTog · miniatura ✓ |
 | 2026-11-19 | 22:30 | 009 | GTA 6 vs GTA 5: Who Made More At Launch? 💰 | original pasado a privado el 21/11 · GRHP1x0xF6Q |
-| 2026-11-29 | 20:00 | 009-R | GTA 6 vs GTA 5: Who Made More At Launch? 💰 (resubida) | programado · JhbnfAGWi1M · miniatura ✓ |
+| 2026-11-25 | 17:00 | 009-R | GTA 6 Made More Than GTA 5 Before It Even Launched 💰 (resubida) | programado · JhbnfAGWi1M · miniatura ✓ · adelantado desde el 29/11 20:00 |
 | 2026-11-23 | 20:00 | 006 | The Konami Code Exists Because He Couldn't Win 🎮 | programado · I4uIUBMA_bE · miniatura ✓ |
 | 2026-11-21 | 20:00 | 007 | The First Easter Egg Was A Programmer's Revenge 🥚 | programado · L2L8LI7iHE0 · miniatura ✓ |
 | 2026-11-25 | 20:00 | 008 | The PlayStation Was Supposed To Be A Nintendo 🎮 | programado · ePnQzJPO0R4 · miniatura ✓ |
 | 2026-11-26 | 20:00 | 011 | This Game Boy Survived A Bombing 💥 | programado · -VtHpYZJkmU · miniatura ✓ |
 | 2026-11-27 | 20:00 | 012 | Zelda Started With A Kid Scared Of A Cave 🏮 | programado · AM2nYNCb9CE · miniatura ✓ |
 | 2026-11-28 | 20:00 | 010 | This Fighting Game Move Started As A Bug 👊 | programado · VH5BPixTGtA · miniatura ✓ |
-| 2026-11-30 | 20:00 | 013 | Silent Hill's Fog Wasn't Supposed To Be Scary 🌫️ | programado · 8ei_2fcd4uQ · miniatura ✓ |
+| 2026-11-29 | 20:00 | 013 | Silent Hill's Fog Wasn't Supposed To Be Scary 🌫️ | programado · 8ei_2fcd4uQ · miniatura ✓ |
