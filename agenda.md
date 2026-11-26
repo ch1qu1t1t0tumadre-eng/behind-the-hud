@@ -30,5 +30,7 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-27 | 20:00 | 012r | Zelda Exists Because Of A Cave 🏮 (rehecho) | programado · _QGFR-bj7Yk · miniatura ✓ · Gaming Lies You Believed |
 | 2026-11-28 | 20:00 | 010r | Street Fighter Combos Were A Bug 👊 (rehecho) | programado · ZAyo9iP5H28 · miniatura ✓ · Gaming Lies You Believed |
 | 2026-11-29 | 20:00 | 013r | Silent Hill's Fog Was Hiding Something 🌫️ (rehecho) | programado · -e8JeG2RwSQ · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-27 | 22:00 | 015-L | 3 GTA 6 Facts You Didn't Know (Part 3) 🤯 (formato lista) | programado · OKrxNy3Uv9A · miniatura ✓ · GTA 6 Facts You Didn't Know |
+| 2026-11-28 | 22:00 | 016 | Minecraft's Creeper Was Meant To Be A Pig 🐷 | programado · gU9Hd59MtYk · miniatura ✓ · Gaming Lies You Believed |
 
-Huecos libres: 22:00 del 27 al 29/11; 20:00 y 22:00 del 30/11 en adelante.
+Huecos libres: 22:00 del 29/11; 20:00 y 22:00 del 30/11 en adelante.
