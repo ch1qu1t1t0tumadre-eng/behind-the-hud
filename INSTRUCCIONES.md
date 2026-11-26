@@ -19,6 +19,11 @@ Si sale 0 o menos, no hagas nada y avisa al dueño (cuándo se renuevan los cré
 ## 2. Tema y guion (skills yt-shorts-hook-writer + yt-shorts-scripter, adaptadas a videojuegos)
 - Tema: protagonista famoso (juego, consola, empresa o diseñador) + giro inesperado. Rota épocas y temas: arcade, consolas, PC, empresas, diseñadores, bugs, récords, ventas, censura, desarrollo, hardware.
 - **Dato verificado con WebSearch en 2 fuentes** antes de escribir. Nada inventado, nada de rumores.
+- **GTA 6 (decisión del dueño, 26/11/2026)**: con datos de Studio, los Shorts de GTA 6 sobre **ventas y dinero** casi no se reparten (GTA 5 vs GTA 6: 2 visitas; «3 GTA 6 Facts» Part 1: 8 visitas en 17 h), mientras que Nintendo/PlayStation/Pac-Man sí (PlayStation: 937 en 19 h, 97 % desde el feed). Por eso:
+  - **Nunca** cifras de ventas, ingresos, precios ni «quién ganó más» de GTA 6 (ni de otros juegos) como tema o gancho.
+  - GTA 6 solo con **historias y secretos** del juego o de su desarrollo (hackeos, filtraciones, easter eggs, detalles ocultos del mapa, por qué algo es como es), cada uno con un ángulo distinto a los ya usados (mira temas_usados.md; no repitas el hackeo de 2022, el tráiler récord ni los retrasos).
+  - Como mucho **1 Short de GTA 6 cada 2 días**; el resto, juegos que tira el canal y conoce un chaval de 13–17 años: Nintendo (Mario, Zelda, Pokémon), Minecraft, PlayStation, Fortnite, Roblox…
+  - Las dos voces del mismo día, de franquicias distintas.
 - Formato BUCLE: la primera frase es el gancho (famoso + giro), «In other words…» como 2.º gancho a mitad, mini-giro cada 2–3 frases, sin llamadas a la acción en la voz (el aviso Subscribe/Like/Share va solo en pantalla, ver paso 4), y la última frase se corta para enlazar con la primera.
 - 125–140 palabras (680–780 caracteres). Protagonista nombrado 4–7 veces. Etiquetas de ElevenLabs v4: `[intrigued]` al inicio y `[dramatic]` antes de «In other words». Guarda el texto en `trabajo/<id>/voz.txt`.
 - Ejemplos: `ejemplos/guion_v01.txt` … `guion_v03.txt`.
