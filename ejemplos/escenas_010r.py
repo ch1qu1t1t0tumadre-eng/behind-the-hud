@@ -268,3 +268,4 @@ def MINIATURA(ctx):
     thumb_arrow(ctx, 120, 1900, 450, 1300)
     thumb_vignette(ctx)
     thumb_text(ctx, [("THIS MOVE", WHITE), "WAS A BUG"], y=330)
+CTA = 23.3  # aviso SUBSCRIBE · LIKE · SHARE tras el «in other words»

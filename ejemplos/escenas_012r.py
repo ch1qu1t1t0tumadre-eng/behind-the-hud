@@ -276,3 +276,4 @@ def MINIATURA(ctx):
     thumb_arrow(ctx, 960, 1900, W / 2 + 200, 1380)
     thumb_vignette(ctx)
     thumb_text(ctx, [("ZELDA BEGAN", WHITE), "WITH A CAVE"], y=330)
+CTA = 22.3  # aviso SUBSCRIBE · LIKE · SHARE tras el «in other words»

@@ -369,3 +369,4 @@ def MINIATURA(ctx):
     thumb_arrow(ctx, 200, 1800, 520, 1260)
     thumb_vignette(ctx)
     thumb_text(ctx, [("THE FOG WAS", WHITE), "NEVER THE PLAN"], y=330)
+CTA = 20.1  # aviso SUBSCRIBE · LIKE · SHARE tras el «in other words»

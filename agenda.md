@@ -27,9 +27,9 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-25 | 22:00 | 009-L | 3 GTA 6 Facts You Didn't Know 🤯 (formato lista) | público · yw_zMt4LssI (v2: subtítulos legibles + aviso SUBSCRIBE; sustituye a xDxyNE7Jj_8) · miniatura ✓ · GTA 6 Facts You Didn't Know |
 | 2026-11-26 | 20:00 | 011r | This Game Boy Survived A Bomb 💥 (rehecho) | programado · QY41IWk1Ju8 · miniatura ✓ · Gaming Lies You Believed |
 | 2026-11-26 | 22:00 | 014-L | 3 GTA 6 Facts You Didn't Know (Part 2) 🤯 (formato lista) | programado · TAl-hNtK30w (v2: subtítulos legibles + aviso SUBSCRIBE; bxLgypPJP4Y en privado) · miniatura ✓ · GTA 6 Facts You Didn't Know |
-| 2026-11-27 | 20:00 | 012r | Zelda Exists Because Of A Cave 🏮 (rehecho) | programado · _QGFR-bj7Yk · miniatura ✓ · Gaming Lies You Believed |
-| 2026-11-28 | 20:00 | 010r | Street Fighter Combos Were A Bug 👊 (rehecho) | programado · ZAyo9iP5H28 · miniatura ✓ · Gaming Lies You Believed |
-| 2026-11-29 | 20:00 | 013r | Silent Hill's Fog Was Hiding Something 🌫️ (rehecho) | programado · -e8JeG2RwSQ · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-27 | 20:00 | 012r | Zelda Exists Because Of A Cave 🏮 (rehecho) | programado · RKU9dNiTtHQ (v2: subtítulos legibles + aviso SUBSCRIBE; _QGFR-bj7Yk en privado) · miniatura PENDIENTE (media/012r_v2.jpg) · Gaming Lies You Believed |
+| 2026-11-28 | 20:00 | 010r | Street Fighter Combos Were A Bug 👊 (rehecho) | programado · oO9S4ctuizk (v2: subtítulos legibles + aviso SUBSCRIBE; ZAyo9iP5H28 en privado) · miniatura PENDIENTE (media/010r_v2.jpg) · Gaming Lies You Believed |
+| 2026-11-29 | 20:00 | 013r | Silent Hill's Fog Was Hiding Something 🌫️ (rehecho) | programado · ii-BXBKOF1Q (v2: subtítulos legibles + aviso SUBSCRIBE; -e8JeG2RwSQ en privado) · miniatura PENDIENTE (media/013r_v2.jpg) · Gaming Lies You Believed |
 | 2026-11-27 | 22:00 | 015-L | 3 GTA 6 Facts You Didn't Know (Part 3) 🤯 (formato lista) | programado · OKrxNy3Uv9A · miniatura ✓ · GTA 6 Facts You Didn't Know |
 | 2026-11-28 | 22:00 | 016 | Minecraft's Creeper Was Meant To Be A Pig 🐷 | programado · gU9Hd59MtYk · miniatura ✓ · Gaming Lies You Believed |
 
