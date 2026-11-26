@@ -670,3 +670,77 @@ def gamepad(ctx, x, y, s, T, press=None, col=(0.22, 0.22, 0.30), accent=CYAN):
     for k in (-50, 30):
         rrect(ctx, k, 60, 60, 18, 9); fill(ctx, (0.08, 0.08, 0.1))
     ctx.restore()
+
+
+# ---------- piezas genéricas añadidas el 26/11/2026 (Shorts 017–021) ----------
+def card(ctx, x, y, s, emoji, name, col, T=0.0, appear=1.0, rot=0.0, crown=0.0):
+    """Carta coleccionable genérica (sin marca): marco de color, icono y nombre. Sirve para nombrar
+    personajes/juegos con copyright sin dibujarlos."""
+    if appear <= 0.01:
+        return
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s * appear, s * appear)
+    rrect(ctx, -150, -210, 300, 420, 26); fill(ctx, col)
+    rrect(ctx, -132, -192, 264, 384, 18); fill(ctx, (0.10, 0.10, 0.16))
+    rrect(ctx, -116, -170, 232, 210, 14); fill(ctx, (0.22, 0.22, 0.32))
+    glow(ctx, 0, -65, 120, col, 0.35)
+    icon(ctx, emoji, 0, -65, 150, 1.0)
+    if name:
+        text(ctx, name, 0, 105, 56 if len(name) < 9 else 44, WHITE, font="Anton")
+    rrect(ctx, -100, 140, 200, 10, 5); fill(ctx, col, 0.5)
+    if crown > 0.05:
+        ctx.save(); ctx.translate(0, -250 - 20 * (1 - crown)); ctx.scale(crown, crown)
+        icon(ctx, "👑", 0, 0, 120, 1.0)
+        ctx.restore()
+    ctx.restore()
+
+
+def word_tiles(ctx, word, y, lt, flip_at, target, col, size=150, gap=16):
+    """Fila de letras que se dan la vuelta (de `word` a `target`, misma longitud) a partir de flip_at."""
+    n = len(word)
+    while n * size + (n - 1) * gap > 960:
+        size *= 0.9; gap *= 0.9
+    x0 = W / 2 - (n * size + (n - 1) * gap) / 2 + size / 2
+    for i in range(n):
+        p = clamp((lt - flip_at - i * 0.07) / 0.25)
+        ch = word[i] if p < 0.5 else target[i]
+        sx = abs(math.cos(p * math.pi))
+        if ch == " ":
+            continue
+        ctx.save(); ctx.translate(x0 + i * (size + gap), y); ctx.scale(max(0.05, sx), 1)
+        tile(ctx, ch, 0, 0, size, pop(lt, 0.04 * i), col if p < 0.5 else LIME)
+        ctx.restore()
+
+
+def calendar_page(ctx, x, y, s, top, big, small="", col=RED, appear=1.0):
+    if appear <= 0.01:
+        return
+    ctx.save(); ctx.translate(x, y); ctx.scale(s * appear, s * appear)
+    rrect(ctx, -160, -170, 320, 340, 24); fill(ctx, WHITE)
+    rrect(ctx, -160, -170, 320, 90, 24); fill(ctx, col)
+    ctx.rectangle(-160, -110, 320, 30); fill(ctx, col)
+    text(ctx, top, 0, -125, 46, WHITE, font="Anton", shadow=False)
+    text(ctx, big, 0, 20, 130 if len(big) <= 4 else 90, (0.12, 0.12, 0.16), font="Anton", shadow=False)
+    if small:
+        text(ctx, small, 0, 130, 34, (0.4, 0.4, 0.45), font="Anton", shadow=False)
+    ctx.restore()
+
+
+def line_chart(ctx, x, y, w, h, pts, prog, rgb=LIME, label=None):
+    """Gráfica simple: pts = lista de valores 0..1; se dibuja hasta prog (0..1)."""
+    rrect(ctx, x - 20, y - h - 20, w + 40, h + 40, 18); fill(ctx, (0.05, 0.06, 0.12), 0.85)
+    for k in range(5):
+        ctx.move_to(x, y - h * k / 4); ctx.line_to(x + w, y - h * k / 4); stroke(ctx, WHITE, 2, 0.08)
+    n = len(pts)
+    upto = prog * (n - 1)
+    ctx.move_to(x, y - h * pts[0])
+    for i in range(1, n):
+        if i <= upto:
+            ctx.line_to(x + w * i / (n - 1), y - h * pts[i])
+        else:
+            f = upto - (i - 1)
+            if f > 0:
+                ctx.line_to(x + w * (i - 1 + f) / (n - 1), y - h * (pts[i - 1] + (pts[i] - pts[i - 1]) * f))
+            break
+    stroke(ctx, rgb, 10)
+    if label:
+        text(ctx, label, x + w / 2, y + 60, 44, WHITE, font="Anton")

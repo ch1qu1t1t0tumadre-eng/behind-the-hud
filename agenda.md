@@ -32,5 +32,11 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-29 | 20:00 | 013r | Silent Hill's Fog Was Hiding Something 🌫️ (rehecho) | programado · ii-BXBKOF1Q (v2: subtítulos legibles + aviso SUBSCRIBE; -e8JeG2RwSQ en privado) · miniatura PENDIENTE (media/013r_v2.jpg) · Gaming Lies You Believed |
 | 2026-11-27 | 22:00 | 015-L | 3 GTA 6 Facts You Didn't Know (Part 3) 🤯 (formato lista) | programado · OKrxNy3Uv9A · miniatura ✓ · GTA 6 Facts You Didn't Know |
 | 2026-11-28 | 22:00 | 016 | Minecraft's Creeper Was Meant To Be A Pig 🐷 | programado · gU9Hd59MtYk · miniatura ✓ · Gaming Lies You Believed |
+| 2026-11-29 | 22:00 | 017-L | 3 Pokémon Facts You Didn't Know ⚡ (formato lista) | programado · _tmpW_s9znU · miniatura PENDIENTE (media/017.jpg) · Gaming Facts You Didn't Know |
+| 2026-11-30 | 20:00 | 018 | Mario Wasn't Called Mario At First 🍄 | programado · im-A183mcP0 · miniatura PENDIENTE (media/018.jpg) · Gaming Lies You Believed |
+| 2026-11-30 | 22:00 | 019-L | Fortnite Was Made In 2 Months? 3 Facts 🏗️ (formato lista) | programado · mXHnfq9YRdo · miniatura PENDIENTE (media/019.jpg) · Gaming Facts You Didn't Know |
+| 2026-12-01 | 20:00 | 020 | Among Us Almost Died Before Anyone Played It 🚀 | programado · tmRB2nXn3fE · miniatura PENDIENTE (media/020.jpg) · Gaming Lies You Believed |
+| 2026-12-01 | 22:00 | 021-L | A Cat Voiced Minecraft's Creepiest Monster 🐱 (formato lista) | PENDIENTE DE SUBIR (límite diario del 26/11) · media/021.mp4 + media/021.jpg · metadatos en trabajo/021/meta.json · Gaming Facts You Didn't Know |
 
-Huecos libres: 22:00 del 29/11; 20:00 y 22:00 del 30/11 en adelante.
+Huecos libres: 20:00 y 22:00 del 2/12 en adelante.
+Lista nueva (26/11): «Gaming Facts You Didn't Know» para los formatos lista que no son de GTA 6.
