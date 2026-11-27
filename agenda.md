@@ -36,7 +36,11 @@ Los vídeos 001–003 los programó el dueño a mano en Studio: revisa allí sus
 | 2026-11-30 | 20:00 | 018 | Mario Wasn't Called Mario At First 🍄 | programado · im-A183mcP0 · miniatura PENDIENTE (media/018.jpg) · Gaming Lies You Believed |
 | 2026-11-30 | 22:00 | 019-L | Fortnite Was Made In 2 Months? 3 Facts 🏗️ (formato lista) | programado · mXHnfq9YRdo · miniatura PENDIENTE (media/019.jpg) · Gaming Facts You Didn't Know |
 | 2026-12-01 | 20:00 | 020 | Among Us Almost Died Before Anyone Played It 🚀 | programado · tmRB2nXn3fE · miniatura PENDIENTE (media/020.jpg) · Gaming Lies You Believed |
-| 2026-12-01 | 22:00 | 021-L | A Cat Voiced Minecraft's Creepiest Monster 🐱 (formato lista) | PENDIENTE DE SUBIR (límite diario del 26/11) · media/021.mp4 + media/021.jpg · metadatos en trabajo/021/meta.json · Gaming Facts You Didn't Know |
+| 2026-12-01 | 22:00 | 021-L | 3 Minecraft Facts You Didn't Know 🤯 (formato lista; antes «A Cat Voiced Minecraft's Creepiest Monster») | PENDIENTE DE SUBIR (límite diario también el 27/11) · media/021.mp4 + media/021.jpg · metadatos en metadatos/021.json · Minecraft Facts You Didn't Know |
+| 2026-12-02 | 20:00 | 022 | Sonic Was Almost A Rabbit 🐰 | PENDIENTE DE SUBIR (límite diario 27/11) · media/022.mp4 + media/022.jpg · metadatos/022.json · Gaming Lies You Believed |
+| 2026-12-02 | 22:00 | 023-L | 3 Mario Facts You Didn't Know 🤯 (formato lista) | PENDIENTE DE SUBIR (límite diario 27/11) · media/023.mp4 + media/023.jpg · metadatos/023.json · Mario Facts You Didn't Know |
 
-Huecos libres: 20:00 y 22:00 del 2/12 en adelante.
+Huecos libres: 20:00 y 22:00 del 3/12 en adelante.
+
+**27/11/2026**: Studio sigue pidiendo la «verificación única» (miniaturas, fijar comentarios) y muestra «Límite diario de subida alcanzado». Siguen PENDIENTES las miniaturas de 012r, 010r, 013r, 017, 018, 019 y 020 y la subida de 021-L, 022 y 023-L (en ese orden en la próxima ejecución). Metadatos de los pendientes en `metadatos/<id>.json` (la carpeta trabajo/ no se sube a git).
 Lista nueva (26/11): «Gaming Facts You Didn't Know» para los formatos lista que no son de GTA 6.

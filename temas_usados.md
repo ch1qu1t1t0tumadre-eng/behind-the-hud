@@ -25,6 +25,14 @@
 | 2026-11-26 | 020 | Among Us (Innersloth, 3 personas, 2018) tuvo picos de 17 jugadores en Steam; explotó en 2020 por los streamers de Twitch; Among Us 2 anunciado y cancelado en 2020. tmRB2nXn3fE, 1/12 20:00. Comentario: "Are you a better crewmate or impostor? 👇" |
 | 2026-11-26 | 021-L | 3 Minecraft Facts: la primera prueba se llamó Cave Game (2009); los Ghast son el gato de C418 recién despertado; las explosiones del Creeper son disparos con el tono bajado. PENDIENTE DE SUBIR, 1/12 22:00. Comentario: "Which Minecraft mob scares you the most? 👇" |
 
+| 2026-11-27 | 022 | Sonic casi fue un conejo: en 1990 Naoto Ohshima dibujó candidatos (conejo que agarraba con las orejas, perro, armadillo, hombre gordo con bigote en pijama); los votaron desconocidos en Central Park y ganó el erizo; el del bigote se convirtió en el Dr. Eggman (Vice, Den of Geek, Sonic Retro). PENDIENTE DE SUBIR, 2/12 20:00. Comentario: "Who's your favorite Sonic character? 👇" |
+| 2026-11-27 | 023-L | 3 Mario Facts (Part 1): bigote porque los píxeles no daban para boca y gorra porque el pelo era difícil de animar; nubes y arbustos de Super Mario Bros. son el mismo dibujo; Bowser era un buey (Rey Buey de Princess Iron Fan) hasta que Tezuka dijo que parecía una tortuga (Iwata Asks, Kotaku, Wikipedia). PENDIENTE DE SUBIR, 2/12 22:00. Comentario: "What's your favorite Mario game? 👇" |
+
 ## Comentarios del canal (26/11/2026)
 Publicados desde @BehindtheHUD-c1n en los 9 Shorts públicos (Tetris, E.T., Space Invaders, Easter egg, Pac-Man, Konami, Nintendo, PlayStation, GTA 6 lista 1). **Sin fijar**: YouTube pide la «verificación única» (funciones avanzadas) para fijar comentarios; no se ha verificado. Cuando el dueño verifique la cuenta, fijar esos 9 y los siguientes.
 Pendientes de publicar cuando sean públicos: 011r (26/11 20:00) "Have you ever dropped your Game Boy? 👇"; 014-L TAl-hNtK30w (26/11 22:00) "Which GTA 6 fact surprised you most? 👇"; 012r (27/11) "What's the scariest place you ever explored in Zelda? 👇"; 015-L (27/11 22:00); 010r (28/11) "Who's your main in Street Fighter? 👇"; 016 (28/11 22:00); 013r (29/11) "What's the scariest game you've ever played? 👇".
+
+
+## Comentarios del canal (27/11/2026)
+Publicados (sin fijar, YouTube pide la verificación única): 011r QY41IWk1Ju8 "Have you ever dropped your Game Boy? 👇"; 014-L TAl-hNtK30w "Which GTA 6 fact surprised you most? 👇".
+Pendientes cuando sean públicos: 012r (27/11 20:00), 015-L (27/11 22:00), 010r y 016 (28/11), 013r y 017-L (29/11), 018 y 019-L (30/11), 020 (1/12), 021-L, 022, 023-L (ver tabla).
